@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nisma | Data Science & AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{--sky:#dcecf9;--sky2:#9cc9ec;--ink:#17304f;--soft:#4d6a8a;--sun:#ffb347;--card:#ffffff}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:'Bricolage Grotesque',system-ui,sans-serif;background:var(--sky);color:var(--ink);line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+
+/* ---------- CLOUD INTRO ---------- */
+#intro{position:fixed;inset:0;z-index:99;background:linear-gradient(#6fb1e4,#cfe6f8);overflow:hidden;
+  display:grid;place-items:center;transition:opacity .8s ease 1.4s,visibility 0s 2.2s}
+#intro.open{opacity:0;visibility:hidden}
+#intro h1{position:relative;z-index:3;font-size:clamp(2.5rem,9vw,6rem);font-weight:800;color:#fff;letter-spacing:-.03em;
+  text-align:center;transition:opacity .6s ease .6s}
+#intro h1 small{display:block;font-size:1rem;font-weight:400;letter-spacing:0;margin-top:.4rem}
+#intro.open h1{opacity:0}
+.side{position:absolute;top:0;bottom:0;width:60%;z-index:2;transition:transform 2s cubic-bezier(.6,0,.2,1) .5s}
+.side.l{left:0}.side.r{right:0}
+#intro.open .l{transform:translateX(-110%)}
+#intro.open .r{transform:translateX(110%)}
+.cloud{position:absolute;background:#fff;border-radius:100px;filter:blur(3px);opacity:.96;animation:drift 9s ease-in-out infinite alternate}
+.cloud::before,.cloud::after{content:"";position:absolute;background:#fff;border-radius:50%}
+.cloud::before{width:55%;height:180%;left:12%;top:-85%}
+.cloud::after{width:40%;height:140%;right:14%;top:-55%}
+@keyframes drift{to{transform:translateX(28px)}}
+.c1{width:320px;height:90px;top:6%;left:5%}.c2{width:420px;height:110px;top:30%;left:-6%;animation-delay:-3s}
+.c3{width:300px;height:80px;top:58%;left:14%;animation-delay:-5s}.c4{width:460px;height:120px;top:80%;left:-4%;animation-delay:-2s}
+.r .c1{left:auto;right:8%}.r .c2{left:auto;right:-6%}.r .c3{left:auto;right:12%}.r .c4{left:auto;right:-4%}
+#skip{position:absolute;bottom:24px;z-index:4;background:none;border:1px solid #fff;color:#fff;border-radius:99px;padding:.4rem 1.1rem;font:inherit;cursor:pointer}
+
+/* ---------- SITE ---------- */
+nav{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+  padding:1rem 6vw;background:rgba(220,236,249,.85);backdrop-filter:blur(8px)}
+nav b{font-weight:800;font-size:1.2rem}
+nav div a{margin-left:1.4rem;text-decoration:none;color:var(--soft)}
+nav div a:hover{color:var(--ink)}
+section{padding:5rem 6vw;max-width:1000px;margin:auto}
+.hero{min-height:75vh;display:flex;flex-direction:column;justify-content:center}
+.hero h2{font-size:clamp(2.4rem,7vw,4.6rem);line-height:1.05;font-weight:800;letter-spacing:-.03em}
+.hero p{max-width:34rem;margin:1.2rem 0 2rem;font-size:1.15rem;color:var(--soft)}
+.btn{display:inline-block;background:var(--ink);color:#fff;padding:.8rem 1.6rem;border-radius:99px;text-decoration:none;margin-right:.6rem}
+.btn.alt{background:none;color:var(--ink);border:2px solid var(--ink)}
+h3{font-size:1.8rem;margin-bottom:1.4rem;letter-spacing:-.02em}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem}
+.tags span{background:var(--card);padding:.45rem 1rem;border-radius:99px;font-size:.95rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+.card{background:var(--card);border-radius:22px;padding:1.6rem}
+.card h4{font-size:1.15rem;margin-bottom:.4rem}
+.card p{color:var(--soft);font-size:.96rem;margin-bottom:.8rem}
+.card a{font-weight:600}
+.job{background:var(--card);border-radius:22px;padding:1.2rem 1.6rem;margin-bottom:.8rem}
+.job span{color:var(--soft);font-size:.9rem}
+footer{text-align:center;padding:4rem 6vw;color:var(--soft)}
+@media (prefers-reduced-motion:reduce){.cloud{animation:none}.side,#intro,#intro h1{transition-duration:.01s;transition-delay:0s}}
+</style>
+</head>
+<body>
+
+<!-- Cloud intro -->
+<div id="intro" aria-hidden="true">
+  <div class="side l"><div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><div class="cloud c4"></div></div>
+  <div class="side r"><div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><div class="cloud c4"></div></div>
+  <h1>Hi, I'm Nisma<small>Data Science &amp; AI</small></h1>
+  <button id="skip">Skip</button>
+</div>
+
+<nav>
+  <b>Nisma</b>
+  <div><a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+</nav>
+
+<section class="hero">
+  <h2>I build things with data, AI and code.</h2>
+  <p>Computer Science graduate (Data Science &amp; AI) who likes turning ML models into apps people can actually use.</p>
+  <div><a class="btn" href="#projects">See my projects</a><a class="btn alt" href="#contact">Get in touch</a></div>
+</section>
+
+<section id="about">
+  <h3>About</h3>
+  <p style="max-width:40rem;margin-bottom:1.4rem">I graduated from Integral University, Lucknow with a 9.6 CGPA. I've worked on machine learning, computer vision, full-stack apps and LLM-powered tools. I'm early in my career and I learn fastest by building.</p>
+  <div class="tags">
+    <span>Python</span><span>SQL</span><span>Java</span><span>Machine Learning</span><span>Computer Vision</span>
+    <span>Flutter</span><span>FastAPI</span><span>React</span><span>Node.js</span><span>LangGraph</span><span>LLM APIs</span>
+  </div>
+</section>
+
+<section id="projects">
+  <h3>Projects</h3>
+  <div class="grid">
+    <!-- Copy one card per project. Change the text and the link. -->
+    <div class="card"><h4>Project one</h4><p>One line on what it does and what you used.</p><a href="https://github.com/YOUR-USERNAME/REPO-NAME">View on GitHub</a></div>
+    <div class="card"><h4>Project two</h4><p>One line on what it does and what you used.</p><a href="https://github.com/YOUR-USERNAME/REPO-NAME">View on GitHub</a></div>
+    <div class="card"><h4>Project three</h4><p>One line on what it does and what you used.</p><a href="https://github.com/YOUR-USERNAME/REPO-NAME">View on GitHub</a></div>
+  </div>
+</section>
+
+<section id="experience">
+  <h3>Experience</h3>
+  <div class="job"><b>AI/ML Project Intern, Infosys Springboard</b><br><span>Feb – Apr 2025</span></div>
+  <div class="job"><b>Data Science Intern, EtrainIndia (with IBM)</b><br><span>Jun – Jul 2025</span></div>
+  <div class="job"><b>SheFi Scholar, SheFi</b><br><span>Jul – Sep 2025</span></div>
+  <div class="job"><b>Led By Accelerator, Led By Foundation</b><br><span>Mar – Aug 2025</span></div>
+</section>
+
+<section id="contact">
+  <h3>Contact</h3>
+  <p style="margin-bottom:1.2rem">Want to work together or just say hi?</p>
+  <a class="btn" href="mailto:YOUR-EMAIL@example.com">Email me</a>
+  <a class="btn alt" href="https://github.com/YOUR-USERNAME">GitHub</a>
+  <a class="btn alt" href="https://www.linkedin.com/in/YOUR-LINKEDIN">LinkedIn</a>
+</section>
+
+<footer>© 2026 Nisma</footer>
+
+<script>
+  const intro = document.getElementById('intro');
+  const open = () => { intro.classList.add('open'); document.body.style.overflow = ''; };
+  document.body.style.overflow = 'hidden';
+  setTimeout(open, 1800);                       // clouds part automatically
+  document.getElementById('skip').onclick = open; // or she can skip
+</script>
+</body>
+</html>
