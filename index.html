@@ -22,12 +22,12 @@ nav,section,footer{position:relative;z-index:1}
 
 /* ---------- CLOUD INTRO (unchanged) ---------- */
 #intro{position:fixed;inset:0;z-index:99;background:linear-gradient(#6fb1e4,#cfe6f8);overflow:hidden;
-  display:grid;place-items:center;transition:opacity .8s ease 1.4s,visibility 0s 2.2s}
+  display:grid;place-items:center;transition:opacity .8s ease 1.9s,visibility 0s 2.7s}
 #intro.open{opacity:0;visibility:hidden}
 #intro h1{position:relative;z-index:3;font-size:clamp(2.5rem,9vw,6rem);font-weight:800;color:#fff;letter-spacing:-.03em;
-  text-align:center;transition:opacity .6s ease .6s}
+  text-align:center;text-shadow:0 4px 24px rgba(23,48,79,.35);transition:color 1s ease .3s,text-shadow 1s ease .3s}
 #intro h1 small{display:block;font-size:1rem;font-weight:400;letter-spacing:0;margin-top:.4rem}
-#intro.open h1{opacity:0}
+#intro.open h1{color:var(--ink);text-shadow:none}
 .side{position:absolute;top:0;bottom:0;width:60%;z-index:2;transition:transform 2s cubic-bezier(.6,0,.2,1) .5s}
 .side.l{left:0}.side.r{right:0}
 #intro.open .l{transform:translateX(-110%)}
@@ -40,6 +40,7 @@ nav,section,footer{position:relative;z-index:1}
 .c1{width:320px;height:90px;top:6%;left:5%}.c2{width:420px;height:110px;top:30%;left:-6%;animation-delay:-3s}
 .c3{width:300px;height:80px;top:58%;left:14%;animation-delay:-5s}.c4{width:460px;height:120px;top:80%;left:-4%;animation-delay:-2s}
 .r .c1{left:auto;right:8%}.r .c2{left:auto;right:-6%}.r .c3{left:auto;right:12%}.r .c4{left:auto;right:-4%}
+.hello{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.8rem}
 #skip{position:absolute;bottom:24px;z-index:4;background:none;border:1px solid #fff;color:#fff;border-radius:99px;padding:.4rem 1.1rem;font:inherit;cursor:pointer}
 
 /* ---------- SITE ---------- */
@@ -94,6 +95,7 @@ footer{text-align:center;padding:4rem 6vw;color:var(--soft)}
 </nav>
 
 <section class="hero">
+  <p class="hello">Hi, I'm <span class="grad">Nisma</span> 👋</p>
   <span class="chip">🎓 CS Engineering · Data Science &amp; AI · 9.6 CGPA</span>
   <h2>I build things with <span class="grad">data, AI and code.</span></h2>
   <p>Computer Science graduate (Data Science &amp; AI) who likes turning ML models into apps people can actually use.</p>
@@ -113,10 +115,16 @@ footer{text-align:center;padding:4rem 6vw;color:var(--soft)}
   <h3>Projects</h3>
   <div class="grid">
     <div class="card">
-      <h4>KOA Early Prediction</h4>
-      <small>EfficientNet · DenseNet · Grad-CAM · Flutter</small>
-      <p>Ensemble CNN for early knee osteoarthritis detection and severity grading, with Grad-CAM to show what the model focuses on.</p>
+      <h4>KOA Severity Grading</h4>
+      <small>Flutter · FastAPI · CNN Ensemble · Grad-CAM</small>
+      <p>App that grades knee osteoarthritis severity (KL 0-4) from X-rays using a 3-model CNN ensemble, Grad-CAM heatmaps and PDF reports.</p>
       <a href="https://github.com/NismaK/AI_Assisted_Early_Prediction_and_Severity_Classification_of_KOA" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+    <div class="card">
+      <h4>ExpertCall Transcript Analyzer</h4>
+      <small>Streamlit · Groq · LLM</small>
+      <p>AI app that analyzes expert-call transcripts, answers interview-guide questions with citations, and finds themes and disagreements across experts.</p>
+      <a href="https://github.com/NismaK/ExpertCall_Transcript_Analyzer" target="_blank" rel="noopener">View on GitHub</a>
     </div>
     <div class="card">
       <h4>Competitor Strategy Tracker</h4>
@@ -128,8 +136,19 @@ footer{text-align:center;padding:4rem 6vw;color:var(--soft)}
       <h4>Health Prediction App</h4>
       <small>Streamlit · SQLite · Hugging Face</small>
       <p>Health prediction app with a multi-model fallback, so it keeps working even if one model fails.</p>
-      <!-- TODO: replace with the exact repo link -->
-      <a href="https://github.com/NismaK" target="_blank" rel="noopener">View on GitHub</a>
+      <a href="https://health-prediction-app-kcsrrvkgpgjzpyzcpqqecc.streamlit.app/" target="_blank" rel="noopener">Live demo</a> &nbsp;·&nbsp; <a href="https://github.com/NismaK/health-prediction-app" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="card">
+      <h4>Product Recommender</h4>
+      <small>React · Node.js · Express · Gemini API</small>
+      <p>AI-powered product recommendation system built with a React frontend, Express backend and Google Gemini.</p>
+      <a href="https://github.com/NismaK/product-recommender" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+    <div class="card">
+      <h4>Farmer Voice Assistant</h4>
+      <small>Streamlit · Murf AI · Python</small>
+      <p>Voice-enabled assistant that gives farmers instant answers on weather, fertilizers, market prices and farming guidelines.</p>
+      <a href="https://github.com/NismaK/-Farmer-Voice-Assistant" target="_blank" rel="noopener">View on GitHub</a>
     </div>
   </div>
 </section>
