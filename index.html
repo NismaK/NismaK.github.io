@@ -4,18 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nisma | Data Science & AI</title>
+<meta name="description" content="Portfolio of Nisma, Computer Science graduate (Data Science & AI) building ML, computer vision and LLM-powered apps.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
 <style>
-:root{--sky:#dcecf9;--sky2:#9cc9ec;--ink:#17304f;--soft:#4d6a8a;--sun:#ffb347;--card:#ffffff}
+:root{--sky:#dcecf9;--sky2:#9cc9ec;--ink:#17304f;--soft:#4d6a8a;--sun:#ffb347;--card:rgba(255,255,255,.7)}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
-body{font-family:'Bricolage Grotesque',system-ui,sans-serif;background:var(--sky);color:var(--ink);line-height:1.6}
+body{font-family:'Bricolage Grotesque',system-ui,sans-serif;background:linear-gradient(180deg,#cfe6f8 0%,#e8f3fc 45%,#fdf3e3 100%);background-attachment:fixed;color:var(--ink);line-height:1.6}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--sun);outline-offset:3px}
 
-/* ---------- CLOUD INTRO ---------- */
+/* ---------- 3D BACKGROUND ---------- */
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+nav,section,footer{position:relative;z-index:1}
+
+/* ---------- CLOUD INTRO (unchanged) ---------- */
 #intro{position:fixed;inset:0;z-index:99;background:linear-gradient(#6fb1e4,#cfe6f8);overflow:hidden;
   display:grid;place-items:center;transition:opacity .8s ease 1.4s,visibility 0s 2.2s}
 #intro.open{opacity:0;visibility:hidden}
@@ -39,31 +44,41 @@ a{color:inherit}
 
 /* ---------- SITE ---------- */
 nav{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
-  padding:1rem 6vw;background:rgba(220,236,249,.85);backdrop-filter:blur(8px)}
+  padding:1rem 6vw;background:rgba(220,236,249,.6);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.6)}
 nav b{font-weight:800;font-size:1.2rem}
-nav div a{margin-left:1.4rem;text-decoration:none;color:var(--soft)}
+nav div a{margin-left:1.4rem;text-decoration:none;color:var(--soft);transition:color .2s}
 nav div a:hover{color:var(--ink)}
 section{padding:5rem 6vw;max-width:1000px;margin:auto}
-.hero{min-height:75vh;display:flex;flex-direction:column;justify-content:center}
+.hero{min-height:80vh;display:flex;flex-direction:column;justify-content:center}
+.chip{align-self:flex-start;background:rgba(255,255,255,.75);border:1px solid #fff;border-radius:99px;padding:.35rem 1rem;font-size:.9rem;color:var(--soft);margin-bottom:1.2rem;box-shadow:0 6px 20px rgba(80,140,200,.15)}
 .hero h2{font-size:clamp(2.4rem,7vw,4.6rem);line-height:1.05;font-weight:800;letter-spacing:-.03em}
+.grad{background:linear-gradient(90deg,#2f7fd0,#ff9d2e);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p{max-width:34rem;margin:1.2rem 0 2rem;font-size:1.15rem;color:var(--soft)}
-.btn{display:inline-block;background:var(--ink);color:#fff;padding:.8rem 1.6rem;border-radius:99px;text-decoration:none;margin-right:.6rem}
-.btn.alt{background:none;color:var(--ink);border:2px solid var(--ink)}
+.btn{display:inline-block;background:var(--ink);color:#fff;padding:.8rem 1.6rem;border-radius:99px;text-decoration:none;margin-right:.6rem;margin-bottom:.6rem;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 20px rgba(23,48,79,.25)}
+.btn:hover{transform:translateY(-3px)}
+.btn.alt{background:rgba(255,255,255,.5);color:var(--ink);border:2px solid var(--ink);box-shadow:none}
 h3{font-size:1.8rem;margin-bottom:1.4rem;letter-spacing:-.02em}
 .tags{display:flex;flex-wrap:wrap;gap:.6rem}
-.tags span{background:var(--card);padding:.45rem 1rem;border-radius:99px;font-size:.95rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
-.card{background:var(--card);border-radius:22px;padding:1.6rem}
-.card h4{font-size:1.15rem;margin-bottom:.4rem}
+.tags span{background:var(--card);border:1px solid #fff;padding:.45rem 1rem;border-radius:99px;font-size:.95rem;box-shadow:0 4px 14px rgba(80,140,200,.12);transition:transform .2s}
+.tags span:hover{transform:translateY(-3px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;perspective:900px}
+.card{background:var(--card);backdrop-filter:blur(10px);border:1px solid #fff;border-radius:22px;padding:1.6rem;box-shadow:0 14px 34px rgba(80,140,200,.18);transition:transform .15s ease,box-shadow .3s;transform-style:preserve-3d}
+.card:hover{box-shadow:0 20px 44px rgba(80,140,200,.3)}
+.card h4{font-size:1.15rem;margin-bottom:.3rem}
+.card small{display:block;color:#2f7fd0;font-size:.82rem;font-weight:600;margin-bottom:.6rem}
 .card p{color:var(--soft);font-size:.96rem;margin-bottom:.8rem}
 .card a{font-weight:600}
-.job{background:var(--card);border-radius:22px;padding:1.2rem 1.6rem;margin-bottom:.8rem}
+.job{background:var(--card);backdrop-filter:blur(10px);border:1px solid #fff;border-radius:22px;padding:1.2rem 1.6rem;margin-bottom:.8rem;box-shadow:0 8px 22px rgba(80,140,200,.12);border-left:6px solid var(--sun)}
 .job span{color:var(--soft);font-size:.9rem}
 footer{text-align:center;padding:4rem 6vw;color:var(--soft)}
-@media (prefers-reduced-motion:reduce){.cloud{animation:none}.side,#intro,#intro h1{transition-duration:.01s;transition-delay:0s}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.reveal.show{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.cloud{animation:none}.side,#intro,#intro h1{transition-duration:.01s;transition-delay:0s}.reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
+
+<canvas id="bg"></canvas>
 
 <!-- Cloud intro -->
 <div id="intro" aria-hidden="true">
@@ -79,12 +94,13 @@ footer{text-align:center;padding:4rem 6vw;color:var(--soft)}
 </nav>
 
 <section class="hero">
-  <h2>I build things with data, AI and code.</h2>
+  <span class="chip">🎓 CS Engineering · Data Science &amp; AI · 9.6 CGPA</span>
+  <h2>I build things with <span class="grad">data, AI and code.</span></h2>
   <p>Computer Science graduate (Data Science &amp; AI) who likes turning ML models into apps people can actually use.</p>
   <div><a class="btn" href="#projects">See my projects</a><a class="btn alt" href="#contact">Get in touch</a></div>
 </section>
 
-<section id="about">
+<section id="about" class="reveal">
   <h3>About</h3>
   <p style="max-width:40rem;margin-bottom:1.4rem">I graduated from Integral University, Lucknow with a 9.6 CGPA. I've worked on machine learning, computer vision, full-stack apps and LLM-powered tools. I'm early in my career and I learn fastest by building.</p>
   <div class="tags">
@@ -93,27 +109,43 @@ footer{text-align:center;padding:4rem 6vw;color:var(--soft)}
   </div>
 </section>
 
-<section id="projects">
+<section id="projects" class="reveal">
   <h3>Projects</h3>
   <div class="grid">
-    <!-- Copy one card per project. Change the text and the link. -->
-    <div class="card"><h4>Project one</h4><p>One line on what it does and what you used.</p><a href="https://github.com/YOUR-USERNAME/REPO-NAME">View on GitHub</a></div>
-    <div class="card"><h4>Project two</h4><p>One line on what it does and what you used.</p><a href="https://github.com/YOUR-USERNAME/REPO-NAME">View on GitHub</a></div>
-    <div class="card"><h4>Project three</h4><p>One line on what it does and what you used.</p><a href="https://github.com/YOUR-USERNAME/REPO-NAME">View on GitHub</a></div>
+    <div class="card">
+      <h4>KOA Early Prediction</h4>
+      <small>EfficientNet · DenseNet · Grad-CAM · Flutter</small>
+      <p>Ensemble CNN for early knee osteoarthritis detection and severity grading, with Grad-CAM to show what the model focuses on.</p>
+      <a href="https://github.com/NismaK/AI_Assisted_Early_Prediction_and_Severity_Classification_of_KOA" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+    <div class="card">
+      <h4>Competitor Strategy Tracker</h4>
+      <small>Python · Streamlit</small>
+      <p>Real-time dashboard that tracks competitor strategy for e-commerce, deployed on Streamlit Cloud.</p>
+      <a href="https://github.com/NismaK/Real-time-Competitor-Strategy-Tracker-for-E-commerce" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+    <div class="card">
+      <h4>Health Prediction App</h4>
+      <small>Streamlit · SQLite · Hugging Face</small>
+      <p>Health prediction app with a multi-model fallback, so it keeps working even if one model fails.</p>
+      <!-- TODO: replace with the exact repo link -->
+      <a href="https://github.com/NismaK" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
   </div>
 </section>
 
-<section id="experience">
+<section id="experience" class="reveal">
   <h3>Experience</h3>
+  <!-- TODO: add one line under each role about what you built -->
   <div class="job"><b>ML Intern, Fly Rank AI</b><br><span>Jul – Sep 2026</span></div>
+  <div class="job"><b>SheFi Scholar, SheFi</b><br><span>Jul – Sep 2025</span></div>
   <div class="job"><b>Data Science Intern, EtrainIndia (with IBM)</b><br><span>Jun – Jul 2025</span></div>
+  <div class="job"><b>Led By Accelerator, Led By Foundation</b><br><span>Mar – Aug 2025</span></div>
   <div class="job"><b>AI/ML Project Intern, Infosys Springboard</b><br><span>Feb – Apr 2025</span></div>
   <div class="job"><b>AI Intern, Edunet Foundation x AICTE</b><br><span>Nov – Dec 2024</span></div>
-  <div class="job"><b>SheFi Scholar, SheFi</b><br><span>Jul – Sep 2025</span></div>
-  <div class="job"><b>Led By Accelerator, Led By Foundation</b><br><span>Mar – Aug 2025</span></div>
 </section>
 
-<section id="contact">
+<section id="contact" class="reveal">
   <h3>Contact</h3>
   <p style="margin-bottom:1.2rem">Want to work together or just say hi?</p>
   <a class="btn" href="mailto:nismakauser@gmail.com">Email me</a>
@@ -123,12 +155,95 @@ footer{text-align:center;padding:4rem 6vw;color:var(--soft)}
 
 <footer>© 2026 Nisma</footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-  const intro = document.getElementById('intro');
-  const open = () => { intro.classList.add('open'); document.body.style.overflow = ''; };
-  document.body.style.overflow = 'hidden';
-  setTimeout(open, 1800);                       
-  document.getElementById('skip').onclick = open; 
+// ---------- cloud intro (same as before) ----------
+const intro = document.getElementById('intro');
+const open = () => { intro.classList.add('open'); document.body.style.overflow = ''; };
+document.body.style.overflow = 'hidden';
+setTimeout(open, 1800);
+document.getElementById('skip').onclick = open;
+
+// ---------- soft 3D floating shapes in the sky ----------
+(function () {
+  if (typeof THREE === "undefined") return; // site still works without 3D
+  const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("bg"), alpha: true, antialias: true });
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 100);
+  camera.position.z = 8;
+
+  scene.add(new THREE.AmbientLight(0xffffff, 0.9));
+  const sunLight = new THREE.DirectionalLight(0xfff2d6, 0.8);
+  sunLight.position.set(4, 5, 6);
+  scene.add(sunLight);
+
+  const shapes = [];
+  function add(geo, color, opacity, x, y, z, wire) {
+    const mat = wire
+      ? new THREE.MeshBasicMaterial({ color, wireframe: true, transparent: true, opacity })
+      : new THREE.MeshStandardMaterial({ color, roughness: 0.25, metalness: 0.1, transparent: true, opacity });
+    const m = new THREE.Mesh(geo, mat);
+    m.position.set(x, y, z);
+    m.userData = { baseY: y, speed: 0.4 + Math.random() * 0.5, phase: Math.random() * 6 };
+    scene.add(m);
+    shapes.push(m);
+  }
+  add(new THREE.IcosahedronGeometry(1.6, 1), 0x2f7fd0, 0.45, 4.2, 1.2, -1, true);
+  add(new THREE.TorusKnotGeometry(0.7, 0.22, 100, 16), 0xffb347, 0.9, -5, -1.5, 0, false);
+  add(new THREE.OctahedronGeometry(0.8), 0x9cc9ec, 0.85, 3.5, -3, 1, false);
+  add(new THREE.SphereGeometry(0.5, 32, 32), 0xffffff, 0.9, -3.8, 2.6, -2, false);
+  add(new THREE.TorusGeometry(1.1, 0.06, 16, 60), 0x2f7fd0, 0.6, -1, -3.5, -1, false);
+
+  // soft dust
+  const n = 250, p = new Float32Array(n * 3);
+  for (let i = 0; i < n * 3; i++) p[i] = (Math.random() - 0.5) * 22;
+  const g = new THREE.BufferGeometry();
+  g.setAttribute("position", new THREE.BufferAttribute(p, 3));
+  const dust = new THREE.Points(g, new THREE.PointsMaterial({ color: 0xffffff, size: 0.06, transparent: true, opacity: 0.9 }));
+  scene.add(dust);
+
+  let mx = 0, my = 0;
+  addEventListener("mousemove", e => { mx = e.clientX / innerWidth - 0.5; my = e.clientY / innerHeight - 0.5; });
+  function resize() {
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    renderer.setSize(innerWidth, innerHeight, false);
+    camera.aspect = innerWidth / innerHeight;
+    camera.updateProjectionMatrix();
+  }
+  addEventListener("resize", resize);
+  resize();
+
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const clock = new THREE.Clock();
+  (function loop() {
+    const t = clock.getElapsedTime();
+    shapes.forEach(s => {
+      if (!still) { s.rotation.x += 0.004 * s.userData.speed; s.rotation.y += 0.006 * s.userData.speed; }
+      s.position.y = s.userData.baseY + Math.sin(t * s.userData.speed + s.userData.phase) * 0.35;
+    });
+    dust.rotation.y = t * 0.02;
+    camera.position.x += (mx * 1.2 - camera.position.x) * 0.04;
+    camera.position.y += (-my * 1.2 - scrollY * 0.002 - camera.position.y) * 0.04;
+    camera.lookAt(0, 0, 0);
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  })();
+})();
+
+// ---------- scroll reveal ----------
+const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add("show")), { threshold: 0.12 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+// ---------- 3D tilt on project cards ----------
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("mousemove", e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    card.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateZ(8px)`;
+  });
+  card.addEventListener("mouseleave", () => (card.style.transform = ""));
+});
 </script>
 </body>
 </html>
